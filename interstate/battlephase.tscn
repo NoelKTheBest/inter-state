@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://battlephase.gd" id="1_ucip7"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Battle Phase" type="Node2D"]
 script = ExtResource("1_ucip7")
