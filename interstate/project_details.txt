@@ -5,10 +5,10 @@ Assets:
  - city and countryside pixel art parallax backgrounds
  - realistic pixel art cars
    - biggest car is for 4 people so we can have at most 4 protagonists
-     (might be better to just do 2-3 at most)
+	 (might be better to just do 2-3 at most)
  - pixel art character assets
    - character template is male based, 
-     will have to make a female base for the animations i'll use
+	 will have to make a female base for the animations i'll use
 
 Assets needed: Portraits of characters
 
