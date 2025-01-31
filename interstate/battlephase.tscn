@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://cavao7js1wetj"]
+[gd_scene load_steps=3 format=3 uid="uid://cavao7js1wetj"]
 
 [ext_resource type="Script" path="res://battlephase.gd" id="1_ucip7"]
+[ext_resource type="Texture2D" uid="uid://bbx4dceod1uik" path="res://icon.svg" id="2_mtm35"]
 
 [node name="Battle Phase" type="Node2D"]
 script = ExtResource("1_ucip7")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 393.0
+offset_top = 388.0
+offset_right = 1067.0
+offset_bottom = 592.0
+editable = false
+
+[node name="ItemList" type="ItemList" parent="TextEdit"]
+offset_right = 398.0
+offset_bottom = 154.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 23
+allow_reselect = true
+item_count = 4
+max_columns = 2
+same_column_width = true
+icon_scale = 0.5
+item_0/text = "Option 1    "
+item_0/icon = ExtResource("2_mtm35")
+item_1/text = "Option 2"
+item_1/icon = ExtResource("2_mtm35")
+item_2/text = "Option 3"
+item_2/icon = ExtResource("2_mtm35")
+item_3/text = "Option 4"
+item_3/icon = ExtResource("2_mtm35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(214, 476)
+scale = Vector2(1.60938, 1.60938)
+texture = ExtResource("2_mtm35")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.89, 0.1869, 0.1869, 1)
+position = Vector2(830, 118)
+texture = ExtResource("2_mtm35")
+
+[connection signal="item_clicked" from="TextEdit/ItemList" to="." method="_on_item_list_item_clicked"]
+[connection signal="item_selected" from="TextEdit/ItemList" to="." method="_on_item_list_item_selected"]
