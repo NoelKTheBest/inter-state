@@ -14,6 +14,7 @@ offset_bottom = 592.0
 editable = false
 
 [node name="ItemList" type="ItemList" parent="TextEdit"]
+layout_mode = 0
 offset_right = 398.0
 offset_bottom = 154.0
 mouse_default_cursor_shape = 2
