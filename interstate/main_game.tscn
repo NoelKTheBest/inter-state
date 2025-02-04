@@ -1,21 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c72633rkn032q"]
+[gd_scene load_steps=4 format=3 uid="uid://c72633rkn032q"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_3wqfo"]
 [ext_resource type="Texture2D" uid="uid://bbx4dceod1uik" path="res://icon.svg" id="2_ks3o1"]
+[ext_resource type="Script" path="res://quick_select.gd" id="3_pq0sj"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_3wqfo")
 
-[node name="GameScreen" type="TextEdit" parent="."]
-offset_left = 208.0
-offset_top = 125.0
-offset_right = 952.0
-offset_bottom = 517.0
-editable = false
+[node name="TextScreen" type="Sprite2D" parent="."]
 
-[node name="DestinationList" type="ItemList" parent="GameScreen"]
+[node name="Label" type="Label" parent="TextScreen"]
+offset_right = 744.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 32
+
+[node name="Timer" type="Timer" parent="TextScreen"]
+one_shot = true
+autostart = true
+
+[node name="DestinationList" type="ItemList" parent="TextScreen"]
 visible = false
-layout_mode = 0
 offset_left = 67.0
 offset_top = 89.0
 offset_right = 352.0
@@ -25,12 +29,8 @@ icon_scale = 0.5
 item_0/text = "Cooltopia"
 item_0/icon = ExtResource("2_ks3o1")
 
-[node name="Timer" type="Timer" parent="GameScreen"]
-one_shot = true
-
-[node name="ItemList" type="ItemList" parent="GameScreen"]
+[node name="ItemList" type="ItemList" parent="TextScreen"]
 visible = false
-layout_mode = 0
 offset_left = 53.0
 offset_top = 86.0
 offset_right = 298.0
@@ -42,14 +42,13 @@ item_0/icon = ExtResource("2_ks3o1")
 item_1/text = "Henray"
 item_1/icon = ExtResource("2_ks3o1")
 
-[node name="QuickSelect" type="TextEdit" parent="GameScreen"]
+[node name="QuickSelect" type="Label" parent="TextScreen"]
 visible = false
-layout_mode = 0
 offset_left = 5.0
 offset_top = 185.0
 offset_right = 325.0
 offset_bottom = 249.0
-editable = false
+script = ExtResource("3_pq0sj")
 
-[connection signal="item_activated" from="GameScreen/DestinationList" to="." method="_on_destination_list_item_activated"]
-[connection signal="timeout" from="GameScreen/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TextScreen/Timer" to="." method="_on_timer_timeout"]
+[connection signal="item_activated" from="TextScreen/DestinationList" to="." method="_on_destination_list_item_activated"]

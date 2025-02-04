@@ -10,21 +10,34 @@ var is_everyone_tired: bool = false
 var no_motivation: bool = false
 var on_E: bool = false
 
+var str = "hello world. Welcome to Interstate.\nThe game where you simulate the experience of being on a roadtrip."
+
+
 var game_over_scenarios = ['BROKE', 'TIRED', 'BORED', 'E', 'CRASH']
 
 var screen: Node
 var timer: Node
 var quickselect: Node
-var progress_mode
 
 var character_scene: PackedScene = preload("res://character.tscn")
 var char1
 var char2
 
 var char_toggle = 0
+var dialog = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	screen = $TextScreen
+	timer = $TextScreen/Timer
+	quickselect = $TextScreen/QuickSelect
+	
+	var file = FileAccess.open("res://Dialog/Game_Start.txt", FileAccess.READ)
+	while file.eof_reached() != true:
+		dialog.append(file.get_line())
+	
+	screen.text = dialog[0]
+	
 	char1 = character_scene.instantiate()
 	char2 = character_scene.instantiate()
 	create_char(char1, "Sheen", 100, 10, 87)
@@ -34,17 +47,14 @@ func _ready() -> void:
 	total_sleep = char1.sleep + char2.sleep
 	total_motivation = char1.motivation + char2.motivation
 	
-	screen = $GameScreen
-	timer = $GameScreen/Timer
-	quickselect = $GameScreen/QuickSelect
-	screen.text = "hello world. Welcome to Interstate.\nThe game where you simulate the experience of being on a roadtrip."
+	dialog[3] = dialog[3] % [total_money, total_sleep, total_motivation]
+	dialog[4] = dialog[4] % [5]
+	print(dialog)
 	
-	progress_mode = "destination"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	progress(progress_mode)
+func procesc(delta: float) -> void:
 	
 	var name1 = char1.character_name
 	var name2 = char2.character_name
@@ -61,40 +71,6 @@ func _process(delta: float) -> void:
 		name1 = char1.character_name + ' <'
 	elif char_toggle == 1:
 			name2 = char2.character_name + ' <'
-	
-	match progress_mode:
-		"menu":
-			quickselect.visible = true
-			quickselect.text = name1 + '\n' + name2
-	
-	if no_money:
-		game_over(game_over_scenarios[0])
-	
-	if is_everyone_tired:
-		#game_over(game_over_scenarios[1])
-		pass
-		# roll for game over scenario 'CRASH'
-		# if CRASH then game over, else characters forcefully sleep
-	
-	if no_motivation:
-		game_over(game_over_scenarios[2])
-	
-	if on_E:
-		game_over(game_over_scenarios[3])
-	
-
-
-func progress(action):
-	match action:
-		"destination":
-			if timer.is_stopped(): timer.start(2)
-		"rss":
-			var a = "We need money, gas, and motivation.\n"
-			var b = "We have %d dollars, %d sleep and %d motivation.\n"
-			var c = "We need %d gallons for gas to get to the next stop."
-			var actual_string = (a + b + c) % [total_money, total_sleep, total_motivation, 5]
-			screen.text = actual_string
-			if timer.is_stopped(): timer.start(1.5)
 
 
 func create_char(character, char_name, money, sleep, motivation):
@@ -104,21 +80,9 @@ func create_char(character, char_name, money, sleep, motivation):
 	character.motivation = motivation # /100
 
 
-func game_over(scenario: String):
-	print(scenario)
-
-
 func _on_timer_timeout() -> void:
-	match progress_mode:
-		"destination":
-			screen.text = "Where do you want to go?"
-			$GameScreen/DestinationList.visible = true
-			progress_mode = 1
-		"rss":
-			screen.text = screen.text + "\nWhat will each character do?"
-			progress_mode = "menu"
+	pass
 
 
 func _on_destination_list_item_activated(index: int) -> void:
-	progress_mode = "rss"
-	$GameScreen/DestinationList.visible = false
+	$TextScreen/DestinationList.visible = false

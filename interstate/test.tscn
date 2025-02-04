@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://0mjheb78mmgh"]
+
+[ext_resource type="Script" path="res://test.gd" id="1_ow4ix"]
+
+[node name="Dialog" type="Node"]
+script = ExtResource("1_ow4ix")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 483.0
+offset_top = 275.0
+offset_right = 660.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 32
+text = "Hello world"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 444.0
+offset_top = 276.0
+offset_right = 772.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 32
+text = "And all who inhabit it"
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+offset_left = 562.0
+offset_top = 276.0
+offset_right = 631.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 32
+text = "doh!"
+
+[node name="Timer3" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

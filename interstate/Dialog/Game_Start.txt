@@ -1,0 +1,5 @@
+hello world. Welcome to Interstate.
+The game where you simulate the experience of being on a roadtrip.
+We need money, gas, and motivation.
+We have %d dollars, %d sleep and %d motivation.
+We need %d gallons for gas to get to the next stop.
