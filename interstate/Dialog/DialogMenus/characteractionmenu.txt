@@ -1,0 +1,16 @@
+Meet %s and %s. Two guys in the prime of their youth. They want to 
+see the world! :>
+
+%s - %d money; %d sleep; %d motivation
+%s - %d money; %d sleep; %d motivation
+Total Gas: %d
+
+There are 3 stops that we need to hit before we get to Newtopia:
+	- Shull Gas Station: needs %d gallons of gas
+	- Rusty's Burgers and Fries: needs %d gallons of gas
+	- The Desert Hills Inn: needs %d gallons of gas
+	- Newtopia: %d gallons of gas
+
+What should each character do?
+	%s %c
+	%s %c

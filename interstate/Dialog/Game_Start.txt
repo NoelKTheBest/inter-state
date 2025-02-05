@@ -2,4 +2,5 @@ hello world. Welcome to Interstate.
 The game where you simulate the experience of being on a roadtrip.
 We need money, gas, and motivation.
 We have %d dollars, %d sleep and %d motivation.
-We need %d gallons for gas to get to the next stop.
+We need %d gallons of gas to get to the next stop.
+Living this unique experience are 2 chill guys who you'll be directing the actions of.
