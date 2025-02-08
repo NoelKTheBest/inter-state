@@ -57,7 +57,7 @@ func _ready() -> void:
 	gasoline = 10
 	
 	setup_action_menu()
-	print(action_menu.format)
+	# print(action_menu.format)
 	
 	dialog[3] = dialog[3] % [total_money, total_sleep, total_motivation]
 	dialog[4] = dialog[4] % [5]
