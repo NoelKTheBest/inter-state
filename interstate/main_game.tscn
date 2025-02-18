@@ -110,6 +110,20 @@ What should each character do?
 script = ExtResource("3_pq0sj")
 actionlist = NodePath("../ActionList")
 
+[node name="Label1" type="Label" parent="TextScreen/CharacterActionMenu"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 523.0
+offset_right = 188.0
+offset_bottom = 546.0
+
+[node name="Label2" type="Label" parent="TextScreen/CharacterActionMenu"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 560.0
+offset_right = 188.0
+offset_bottom = 583.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextScreen"]
 libraries = {
 "": SubResource("AnimationLibrary_gjytf")
@@ -129,5 +143,6 @@ item_2/text = "Explore"
 
 [connection signal="timeout" from="TextScreen/Timer" to="." method="_on_timer_timeout"]
 [connection signal="item_activated" from="TextScreen/DestinationList" to="." method="_on_destination_list_item_activated"]
+[connection signal="selection_made" from="TextScreen/CharacterActionMenu" to="." method="_on_character_action_menu_selection_made"]
 [connection signal="visibility_changed" from="TextScreen/CharacterActionMenu" to="TextScreen/CharacterActionMenu" method="_on_visibility_changed"]
 [connection signal="item_activated" from="TextScreen/ActionList" to="TextScreen/CharacterActionMenu" method="_on_item_list_2_item_activated"]

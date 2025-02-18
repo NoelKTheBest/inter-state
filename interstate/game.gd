@@ -128,3 +128,16 @@ func setup_action_menu():
 	action_menu.format.append(' ')
 	action_menu.format.append(char2.character_name)
 	action_menu.format.append(' ')
+
+
+func _on_character_action_menu_selection_made(option: Variant) -> void:
+	# Remove the current level
+	var root = get_tree().root
+	var level = root.get_node("Node")
+	root.remove_child(level)
+	level.call_deferred("free")
+	
+	# Add the next level
+	var next_level_resource = load("res://test_scene.tscn")
+	var next_level = next_level_resource.instantiate()
+	root.add_child(next_level)
