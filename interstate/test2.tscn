@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b54ml3u2mrs1b"]
 
-[ext_resource type="Script" path="res://test2.gd" id="1_ryank"]
+[ext_resource type="Script" path="res://scripts/test2.gd" id="1_ryank"]
 [ext_resource type="FontFile" uid="uid://dtmonqujusw88" path="res://Pansy Hand/pansyhand.ttf" id="2_xip8b"]
 
 [node name="Node" type="Node"]

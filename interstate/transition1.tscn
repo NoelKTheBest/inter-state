@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://qcenn7hb1cag"]
+
+[ext_resource type="Texture2D" uid="uid://diqswibyoi1ii" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer01.png" id="1_4ighh"]
+[ext_resource type="Texture2D" uid="uid://cq6h6sgg5yira" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer02.png" id="2_cr1ay"]
+[ext_resource type="Texture2D" uid="uid://bqhq82mkdcdq8" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer03.png" id="3_5nwvv"]
+[ext_resource type="Texture2D" uid="uid://dlb40bcxlhwag" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer04.png" id="4_tym7t"]
+[ext_resource type="Texture2D" uid="uid://8ccjoiv3i554" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer05.png" id="5_1uhmr"]
+[ext_resource type="Texture2D" uid="uid://dwev5v57b256w" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer06.png" id="6_d3w4q"]
+[ext_resource type="Texture2D" uid="uid://diydlw5xd14w" path="res://pixel car assets pack/car3/camry_red.png" id="7_gaibs"]
+[ext_resource type="Script" path="res://scripts/drive.gd" id="8_kck43"]
+[ext_resource type="Texture2D" uid="uid://cjfdgjnss2mg2" path="res://pixel car assets pack/wheels/wheel1.png" id="9_nutd5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.16, 0.16)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_4ighh")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.33, 0.33)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_cr1ay")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_5nwvv")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.66, 0.66)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_tym7t")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.83, 0.83)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_1uhmr")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+scale = Vector2(2, 2)
+texture = ExtResource("6_d3w4q")
+centered = false
+
+[node name="CamryRed" type="Sprite2D" parent="."]
+position = Vector2(42, 196)
+scale = Vector2(0.117593, 0.117593)
+texture = ExtResource("7_gaibs")
+script = ExtResource("8_kck43")
+spd = 7
+
+[node name="Camera2D" type="Camera2D" parent="CamryRed"]
+offset = Vector2(165.635, -40.325)
+zoom = Vector2(2.755, 2.755)
+
+[node name="Wheel1" type="Sprite2D" parent="CamryRed"]
+position = Vector2(535.748, 263.622)
+rotation = -6.28319
+scale = Vector2(1.34336, 1.34336)
+texture = ExtResource("9_nutd5")
+offset = Vector2(9.035, 4.85)
+
+[node name="Wheel2" type="Sprite2D" parent="CamryRed"]
+position = Vector2(-34.0157, 263.622)
+scale = Vector2(1.343, 1.343)
+texture = ExtResource("9_nutd5")
+offset = Vector2(8.915, 4.935)

@@ -138,6 +138,6 @@ func _on_character_action_menu_selection_made(option: Variant) -> void:
 	level.call_deferred("free")
 	
 	# Add the next level
-	var next_level_resource = load("res://test_scene.tscn")
+	var next_level_resource = load("res://transition1.tscn")
 	var next_level = next_level_resource.instantiate()
 	root.add_child(next_level)

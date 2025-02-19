@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://qcenn7hb1cag"]
-
-[ext_resource type="Texture2D" uid="uid://diydlw5xd14w" path="res://pixel car assets pack/car3/camry_red.png" id="1_3geei"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="CamryRed" type="Sprite2D" parent="."]
-position = Vector2(344, 105)
-texture = ExtResource("1_3geei")
