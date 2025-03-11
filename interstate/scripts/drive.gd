@@ -17,14 +17,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("ui_right"):
-		move_local_x(1*spd)
-		currspd = spd
-	elif Input.is_action_pressed("ui_left"):
-		move_local_x(-1*spd)
-		currspd = spd * -1
-	else:
-		currspd = 0
+	#if Input.is_action_pressed("ui_right"):
+	#	move_local_x(1*spd)
+	#	currspd = spd
+	#elif Input.is_action_pressed("ui_left"):
+	#	move_local_x(-1*spd)
+	#	currspd = spd * -1
+	#else:
+	#	currspd = 0
+	
+	move_local_x(spd)
+	currspd = spd
 	
 	angspd = currspd / wheelrad
 	angrot = angspd * delta

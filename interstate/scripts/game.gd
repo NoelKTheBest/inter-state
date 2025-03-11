@@ -19,16 +19,19 @@ var game_over_scenarios = ['BROKE', 'TIRED', 'BORED', 'E', 'CRASH']
 
 var screen: Node
 var timer: Node
-var action_menu: Node
+var destination_list: Node
 
 var character_scene: PackedScene = preload("res://character.tscn")
 var char1
 var char2
 
 var dialog = []
+var format = []
 var di: int = 0
 
 var skip: bool = false
+var long_timer_active: bool = false
+var timeleft: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,12 +39,14 @@ func _ready() -> void:
 	$TextScreen/AnimationPlayer.play("TypewriterEffect")
 	screen = $TextScreen/Label
 	timer = $TextScreen/Timer
-	action_menu = $TextScreen/CharacterActionMenu
+	destination_list = $TextScreen/DestinationList
 	
 	# Load Dialog
 	var file = FileAccess.open("res://Dialog/Game_Start.txt", FileAccess.READ)
 	while file.eof_reached() != true:
 		dialog.append(file.get_line())
+	file = FileAccess.open("res://Dialog/DialogMenus/characteractionmenu.txt", FileAccess.READ)
+	dialog[6] = file.get_as_text()
 	
 	# Scene Setup
 	screen.text = dialog[di]
@@ -56,16 +61,20 @@ func _ready() -> void:
 	total_motivation = char1.motivation + char2.motivation
 	gasoline = 10
 	
-	setup_action_menu()
-	# print(action_menu.format)
+	setup_destination_list()
 	
 	dialog[3] = dialog[3] % [total_money, total_sleep, total_motivation]
 	dialog[4] = dialog[4] % [5]
-	dialog[dialog.size() - 1] = "...."
+	dialog[6] = dialog[6] % format
+	#dialog[dialog.size() - 1] = "...."
 
 
 func _process(delta: float) -> void:
 	if di <= dialog.size() - 1:
+		if long_timer_active: 
+			timeleft = roundi(timer.time_left)
+			$TextScreen/TimeLeftLabel.text = str(timeleft)
+		
 		if Input.is_action_just_pressed("ui_accept") and not skip:
 			#print("skip?")
 			$TextScreen/AnimationPlayer.seek(1.75)
@@ -77,9 +86,13 @@ func _process(delta: float) -> void:
 			if di <= dialog.size() - 1: di += 1
 			$TextScreen/AnimationPlayer.play("TypewriterEffect")
 			if di < dialog.size(): screen.text = dialog[di]
-			timer.start()
+			print(di)
+			if di < 6: timer.start()
+			else: 
+				timer.start(15)
+				long_timer_active = true
 	else:
-		action_menu.visible = true
+		_on_destination_list_transition()
 		screen.text = ""
 
 
@@ -95,42 +108,37 @@ func _on_timer_timeout() -> void:
 	if di <= dialog.size() - 1:
 		$TextScreen/AnimationPlayer.play("TypewriterEffect")
 		screen.text = dialog[di]
-		timer.start()
+		if di < 6: timer.start()
+		else: 
+			timer.start(15)
+			long_timer_active = true
 
 
-func _on_destination_list_item_activated(index: int) -> void:
-	$TextScreen/DestinationList.visible = false
+func setup_destination_list():
+	#destination_list.tm = total_money
+	#destination_list.ts = total_sleep
+	#destination_list.tmot = total_motivation
+	#destination_list.char1 = char1
+	#destination_list.char2 = char2
+	#destination_list.gas = gasoline
+	format.append(char1.character_name)
+	format.append(char2.character_name)
+	format.append(char1.character_name)
+	format.append(char1.money)
+	format.append(char1.sleep)
+	format.append(char1.motivation)
+	format.append(char2.character_name)
+	format.append(char2.money)
+	format.append(char2.sleep)
+	format.append(char2.motivation)
+	format.append(gasoline)
+	format.append(gas_needed[0])
+	format.append(gas_needed[0] + gas_needed[1])
+	format.append(gas_needed[0] + gas_needed[1] + gas_needed[2])
+	format.append(gas_needed[0] + gas_needed[1] + gas_needed[2] + gas_needed[3])
 
 
-func setup_action_menu():
-	action_menu.tm = total_money
-	action_menu.ts = total_sleep
-	action_menu.tmot = total_motivation
-	action_menu.char1 = char1
-	action_menu.char2 = char2
-	action_menu.gas = gasoline
-	action_menu.format.append(char1.character_name)
-	action_menu.format.append(char2.character_name)
-	action_menu.format.append(char1.character_name)
-	action_menu.format.append(char1.money)
-	action_menu.format.append(char1.sleep)
-	action_menu.format.append(char1.motivation)
-	action_menu.format.append(char2.character_name)
-	action_menu.format.append(char2.money)
-	action_menu.format.append(char2.sleep)
-	action_menu.format.append(char2.motivation)
-	action_menu.format.append(gasoline)
-	action_menu.format.append(gas_needed[0])
-	action_menu.format.append(gas_needed[0] + gas_needed[1])
-	action_menu.format.append(gas_needed[0] + gas_needed[1] + gas_needed[2])
-	action_menu.format.append(gas_needed[0] + gas_needed[1] + gas_needed[2] + gas_needed[3])
-	action_menu.format.append(char1.character_name)
-	action_menu.format.append(' ')
-	action_menu.format.append(char2.character_name)
-	action_menu.format.append(' ')
-
-
-func _on_character_action_menu_selection_made(option: Variant) -> void:
+func _on_destination_list_transition() -> void:
 	# Remove the current level
 	var root = get_tree().root
 	var level = root.get_node("Node")

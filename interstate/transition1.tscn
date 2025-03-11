@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://qcenn7hb1cag"]
+[gd_scene load_steps=13 format=3 uid="uid://qcenn7hb1cag"]
 
 [ext_resource type="Texture2D" uid="uid://diqswibyoi1ii" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer01.png" id="1_4ighh"]
 [ext_resource type="Texture2D" uid="uid://cq6h6sgg5yira" path="res://Pixel City background pack 3.0 by Digital Moons/Pixel City background pack 3.0 by Digital Moons/Pixel City 240x135px/Pixelcity02/Pixelcity02_layer02.png" id="2_cr1ay"]
@@ -9,6 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://diydlw5xd14w" path="res://pixel car assets pack/car3/camry_red.png" id="7_gaibs"]
 [ext_resource type="Script" path="res://scripts/drive.gd" id="8_kck43"]
 [ext_resource type="Texture2D" uid="uid://cjfdgjnss2mg2" path="res://pixel car assets pack/wheels/wheel1.png" id="9_nutd5"]
+[ext_resource type="Script" path="res://transitiontext.gd" id="10_lxma6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3nkn"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="Theme" id="Theme_asc7q"]
+Label/styles/normal = SubResource("StyleBoxFlat_q3nkn")
 
 [node name="Node2D" type="Node2D"]
 
@@ -90,3 +107,20 @@ position = Vector2(-34.0157, 263.622)
 scale = Vector2(1.343, 1.343)
 texture = ExtResource("9_nutd5")
 offset = Vector2(8.915, 4.935)
+
+[node name="GameText" type="Label" parent="CamryRed"]
+offset_left = -323.0
+offset_top = -1284.0
+offset_right = 3113.0
+offset_bottom = -1029.0
+theme = SubResource("Theme_asc7q")
+theme_override_font_sizes/font_size = 104
+text = "I will display dialog from this label up here. I will probably do the s"
+script = ExtResource("10_lxma6")
+
+[node name="Timer" type="Timer" parent="CamryRed/GameText"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CamryRed/GameText/Timer" to="CamryRed/GameText" method="_on_timer_timeout"]

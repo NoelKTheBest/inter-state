@@ -10,7 +10,3 @@ There are 3 stops that we need to hit before we get to Newtopia:
 	- Rusty's Burgers and Fries: needs %d gallons of gas
 	- The Desert Hills Inn: needs %d gallons of gas
 	- Newtopia: %d gallons of gas
-
-What should each character do?
-	%s %c
-	%s %c

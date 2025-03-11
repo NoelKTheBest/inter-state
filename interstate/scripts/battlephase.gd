@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and current_state != battle_state.STATE_BATTLEEND:
 		var ran = rng.randi_range(0, 3)
 		if current_state == battle_state.STATE_PLAYERTURN:
