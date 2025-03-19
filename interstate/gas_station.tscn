@@ -1,8 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbl0og14jlsat"]
+[gd_scene load_steps=11 format=3 uid="uid://bbl0og14jlsat"]
 
+[ext_resource type="Texture2D" uid="uid://bvuf5ahtk7443" path="res://assetpack/parallax/city night/parallaxcitysky.png" id="1_86ncd"]
+[ext_resource type="Texture2D" uid="uid://cl7ff2wx24rr8" path="res://assetpack/parallax/city night/parallaxcitywater.png" id="1_ra5oo"]
 [ext_resource type="Texture2D" uid="uid://n3fpx4tpc56j" path="res://myassets/gas station.png" id="1_ue0u5"]
+[ext_resource type="Texture2D" uid="uid://c5kviqv167itw" path="res://assetpack/parallax/city night/parallaxcitybuildings.png" id="2_iapir"]
+[ext_resource type="Texture2D" uid="uid://bmij4ifghcxqi" path="res://assetpack/parallax/city night/parallaxcitybackgroundmountain2.png" id="3_ut4ia"]
+[ext_resource type="PackedScene" uid="uid://bvlt6ma4vwajx" path="res://Dwayne.tscn" id="4_80tna"]
+[ext_resource type="Texture2D" uid="uid://dcbikxvc4326u" path="res://assetpack/parallax/city night/parallaxcitybackgroundmountain.png" id="4_j0xll"]
+[ext_resource type="Texture2D" uid="uid://benmogdc5d6ie" path="res://assetpack/parallax/city night/parallaxcityfront.png" id="6_a3jkd"]
+[ext_resource type="Texture2D" uid="uid://bwo3h3x3hs4m2" path="res://assetpack/parallax/city night/parallaxcitywaterreflexion.png" id="7_67r7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl06x"]
+size = Vector2(1236, 56)
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(470, -4)
+metadata/_edit_group_ = true
+
+[node name="Parallaxcitywater" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("1_ra5oo")
+
+[node name="Parallaxcitysky" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(180, 244)
+texture = ExtResource("1_86ncd")
+
+[node name="Parallaxcitybackgroundmountain2" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("3_ut4ia")
+
+[node name="Parallaxcitybackgroundmountain" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("4_j0xll")
+
+[node name="Parallaxcitybuildings" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("2_iapir")
+
+[node name="Parallaxcityfront" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("6_a3jkd")
+
+[node name="Parallaxcitywaterreflexion" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("7_67r7i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(365, 282)
@@ -15,3 +59,19 @@ visibility_layer = 3
 position = Vector2(873, 282)
 scale = Vector2(5.69922, 5.69922)
 texture = ExtResource("1_ue0u5")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_80tna")]
+position = Vector2(1054, 422)
+scale = Vector2(4.44, 4.44)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 1237
+limit_bottom = 648
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(618, 674)
+shape = SubResource("RectangleShape2D_hl06x")
