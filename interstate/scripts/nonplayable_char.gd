@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Area2D
 
 const empathy: int = 1
 const sympathy: int = 1
@@ -27,3 +27,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_character_body_2d_start_convo(x_pos: Variant) -> void:
+	if x_pos <= position.x:
+		$AnimatedSprite2D.flip_h = true
+	elif x_pos > position.x:
+		$AnimatedSprite2D.flip_h = false

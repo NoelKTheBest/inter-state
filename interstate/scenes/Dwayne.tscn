@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bvlt6ma4vwajx"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_phh20"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_phh20"]
 [ext_resource type="Texture2D" uid="uid://dnury8byicb71" path="res://myassets/Dwayne-Sheet.png" id="2_7slnj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1s6o"]

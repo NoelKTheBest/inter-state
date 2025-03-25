@@ -21,7 +21,7 @@ var screen: Node
 var timer: Node
 var destination_list: Node
 
-var character_scene: PackedScene = preload("res://character.tscn")
+var character_scene: PackedScene = preload("res://scenes/character.tscn")
 var char1
 var char2
 
@@ -146,6 +146,6 @@ func _on_destination_list_transition() -> void:
 	level.call_deferred("free")
 	
 	# Add the next level
-	var next_level_resource = load("res://transition1.tscn")
+	var next_level_resource = load("res://scenes/transition1.tscn")
 	var next_level = next_level_resource.instantiate()
 	root.add_child(next_level)

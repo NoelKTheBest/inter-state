@@ -1,0 +1,173 @@
+[gd_scene load_steps=18 format=3 uid="uid://bbl0og14jlsat"]
+
+[ext_resource type="Texture2D" uid="uid://bvuf5ahtk7443" path="res://assetpack/parallax/city night/parallaxcitysky.png" id="1_86ncd"]
+[ext_resource type="Texture2D" uid="uid://cl7ff2wx24rr8" path="res://assetpack/parallax/city night/parallaxcitywater.png" id="1_ra5oo"]
+[ext_resource type="Texture2D" uid="uid://c5kviqv167itw" path="res://assetpack/parallax/city night/parallaxcitybuildings.png" id="2_iapir"]
+[ext_resource type="Texture2D" uid="uid://bmij4ifghcxqi" path="res://assetpack/parallax/city night/parallaxcitybackgroundmountain2.png" id="3_ut4ia"]
+[ext_resource type="PackedScene" uid="uid://bvlt6ma4vwajx" path="res://scenes/Dwayne.tscn" id="4_80tna"]
+[ext_resource type="Texture2D" uid="uid://dcbikxvc4326u" path="res://assetpack/parallax/city night/parallaxcitybackgroundmountain.png" id="4_j0xll"]
+[ext_resource type="Texture2D" uid="uid://benmogdc5d6ie" path="res://assetpack/parallax/city night/parallaxcityfront.png" id="6_a3jkd"]
+[ext_resource type="Texture2D" uid="uid://bwo3h3x3hs4m2" path="res://assetpack/parallax/city night/parallaxcitywaterreflexion.png" id="7_67r7i"]
+[ext_resource type="Texture2D" uid="uid://b057yyf7c0jic" path="res://myassets/gas station part1.png" id="8_q0jpj"]
+[ext_resource type="Texture2D" uid="uid://b11c47wovktev" path="res://myassets/gas station part2.png" id="9_e6by3"]
+[ext_resource type="Texture2D" uid="uid://cyx7xehxa07w6" path="res://myassets/gas station part3.png" id="10_umg8c"]
+[ext_resource type="Texture2D" uid="uid://b5l2cqrdhq8p2" path="res://light.png" id="11_tj0ud"]
+[ext_resource type="PackedScene" uid="uid://dphj4dshxfsxk" path="res://scenes/npc.tscn" id="13_lp3re"]
+[ext_resource type="StyleBox" uid="uid://c7p4s4xr7v7dj" path="res://label v1.tres" id="14_paa0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl06x"]
+size = Vector2(2189, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfntb"]
+size = Vector2(44, 607)
+
+[sub_resource type="Theme" id="Theme_mygnq"]
+Label/font_sizes/font_size = 16
+Label/styles/normal = ExtResource("14_paa0w")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(470, -3)
+metadata/_edit_group_ = true
+
+[node name="Parallaxcitywater" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("1_ra5oo")
+
+[node name="Parallaxcitysky" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("1_86ncd")
+
+[node name="Parallaxcitybackgroundmountain2" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("3_ut4ia")
+
+[node name="Parallaxcitybackgroundmountain" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("4_j0xll")
+
+[node name="Parallaxcitybuildings" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("2_iapir")
+
+[node name="Parallaxcityfront" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("6_a3jkd")
+
+[node name="Parallaxcitywaterreflexion" type="Sprite2D" parent="Node2D"]
+position = Vector2(180, 244)
+texture = ExtResource("7_67r7i")
+
+[node name="Node2D2" type="Node2D" parent="."]
+modulate = Color(0.633757, 0.633757, 0.633757, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D2"]
+position = Vector2(365, 282)
+scale = Vector2(5.69922, 5.69922)
+texture = ExtResource("8_q0jpj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D2"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1094, 282)
+scale = Vector2(5.69922, 5.69922)
+texture = ExtResource("9_e6by3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D2"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1823, 282)
+scale = Vector2(5.69922, 5.69922)
+texture = ExtResource("10_umg8c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/StaticBody2D"]
+position = Vector2(1094.5, 674)
+shape = SubResource("RectangleShape2D_hl06x")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D2"]
+position = Vector2(-11, 417)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/StaticBody2D2"]
+position = Vector2(-12, -18.5)
+shape = SubResource("RectangleShape2D_hfntb")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D2"]
+position = Vector2(2221, 417)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D2/StaticBody2D3"]
+position = Vector2(-12, -18.5)
+shape = SubResource("RectangleShape2D_hfntb")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D2"]
+position = Vector2(227, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Node2D2"]
+position = Vector2(1956, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Node2D2"]
+position = Vector2(1683, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Node2D2"]
+position = Vector2(1228, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Node2D2"]
+position = Vector2(500, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Node2D2"]
+position = Vector2(954, 373)
+scale = Vector2(0.958, 2.947)
+range_z_max = 0
+texture = ExtResource("11_tj0ud")
+
+[node name="CharacterBody2D" parent="." node_paths=PackedStringArray("area2d") instance=ExtResource("4_80tna")]
+z_index = 2
+position = Vector2(233, 551)
+scale = Vector2(4.44, 4.44)
+area2d = NodePath("../Area2D")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 2186
+limit_bottom = 648
+
+[node name="Area2D" parent="." instance=ExtResource("13_lp3re")]
+z_index = 1
+position = Vector2(482, 551)
+scale = Vector2(4.44, 4.44)
+
+[node name="Node2D3" type="Node2D" parent="."]
+scale = Vector2(0.34, 0.34)
+
+[node name="Label" type="Label" parent="Node2D3"]
+offset_left = 15.0
+offset_top = 9.0
+offset_right = 3374.0
+offset_bottom = 212.0
+theme = SubResource("Theme_mygnq")
+theme_override_font_sizes/font_size = 85
+
+[connection signal="start_convo" from="CharacterBody2D" to="Area2D" method="_on_character_body_2d_start_convo"]
+[connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
