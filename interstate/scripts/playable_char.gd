@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Sprite2D
 
 @export var money: int = 1
 @export var sleep: int = 1

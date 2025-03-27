@@ -1,12 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cavao7js1wetj"]
+[gd_scene load_steps=10 format=3 uid="uid://cse5mco6odfv6"]
 
-[ext_resource type="Script" path="res://scripts/battlephase.gd" id="1_sugmq"]
-[ext_resource type="Texture2D" uid="uid://bbx4dceod1uik" path="res://icon.svg" id="2_kn5mj"]
-[ext_resource type="Theme" uid="uid://7ocyba50ufr3" path="res://itemlist.tres" id="2_ms6qo"]
-[ext_resource type="Texture2D" uid="uid://dnury8byicb71" path="res://myassets/Dwayne-Sheet.png" id="3_qrdht"]
-[ext_resource type="Script" path="res://scripts/playable_char.gd" id="4_5h8u2"]
-[ext_resource type="Texture2D" uid="uid://cuhn7gtwfgqkc" path="res://myassets/Chanel-Sheet.png" id="5_0dn1n"]
-[ext_resource type="Script" path="res://scripts/npc_battlephase.gd" id="6_usqiq"]
+[ext_resource type="Script" path="res://scripts/battlephase.gd" id="1_tlqj0"]
+[ext_resource type="Theme" uid="uid://7ocyba50ufr3" path="res://itemlist.tres" id="2_ylbwu"]
+[ext_resource type="Texture2D" uid="uid://bbx4dceod1uik" path="res://icon.svg" id="3_dy11i"]
+[ext_resource type="Texture2D" uid="uid://dnury8byicb71" path="res://myassets/Dwayne-Sheet.png" id="4_q48r1"]
+[ext_resource type="Script" path="res://scripts/playable_char.gd" id="5_d0pqp"]
+[ext_resource type="Texture2D" uid="uid://cuhn7gtwfgqkc" path="res://myassets/Chanel-Sheet.png" id="6_81eak"]
+[ext_resource type="Script" path="res://scripts/npc_battlephase.gd" id="7_b0ugf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3jlk"]
 content_margin_left = 36.0
@@ -28,7 +28,7 @@ shadow_offset = Vector2(8.49, 13.345)
 Label/styles/normal = SubResource("StyleBoxFlat_h3jlk")
 
 [node name="Battle Phase" type="Node2D"]
-script = ExtResource("1_sugmq")
+script = ExtResource("1_tlqj0")
 
 [node name="TextEdit" type="Label" parent="."]
 offset_left = 369.0
@@ -44,7 +44,7 @@ offset_top = 292.0
 offset_right = 838.0
 offset_bottom = 446.0
 mouse_default_cursor_shape = 2
-theme = ExtResource("2_ms6qo")
+theme = ExtResource("2_ylbwu")
 theme_override_font_sizes/font_size = 23
 allow_reselect = true
 item_count = 4
@@ -52,29 +52,29 @@ max_columns = 2
 same_column_width = true
 icon_scale = 0.5
 item_0/text = "Plead"
-item_0/icon = ExtResource("2_kn5mj")
+item_0/icon = ExtResource("3_dy11i")
 item_1/text = "Insist"
-item_1/icon = ExtResource("2_kn5mj")
+item_1/icon = ExtResource("3_dy11i")
 item_2/text = "Complain"
-item_2/icon = ExtResource("2_kn5mj")
+item_2/icon = ExtResource("3_dy11i")
 item_3/text = "Talk"
-item_3/icon = ExtResource("2_kn5mj")
+item_3/icon = ExtResource("3_dy11i")
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(311, 315)
 scale = Vector2(9.09679, 9.09679)
-texture = ExtResource("3_qrdht")
+texture = ExtResource("4_q48r1")
 hframes = 9
-script = ExtResource("4_5h8u2")
+script = ExtResource("5_d0pqp")
 character_name = "Dwayne"
 
 [node name="NPC" type="Sprite2D" parent="."]
 position = Vector2(942, 89)
 scale = Vector2(5.22222, 5.22222)
-texture = ExtResource("5_0dn1n")
+texture = ExtResource("6_81eak")
 flip_h = true
 hframes = 8
-script = ExtResource("6_usqiq")
+script = ExtResource("7_b0ugf")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
