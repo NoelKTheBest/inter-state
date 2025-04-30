@@ -75,6 +75,7 @@ texture = ExtResource("6_81eak")
 flip_h = true
 hframes = 8
 script = ExtResource("7_b0ugf")
+resistance = 9
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

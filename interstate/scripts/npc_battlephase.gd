@@ -3,13 +3,13 @@ extends Sprite2D
 signal respond(response: String)
 
 #const empathy: int = 1
-const sympathy: int = 1
-const kindess: int = 2
+@export var sympathy: int = 1
+@export var kindess: int = 1
 
 # pity > resistance > willingness > pity
-var pity: int = 1
-var resistance: int = 9
-var willingness: int = 1
+@export var pity: int = 1
+@export var resistance: int = 1
+@export var willingness: int = 1
 
 var convinced: bool = false
 
