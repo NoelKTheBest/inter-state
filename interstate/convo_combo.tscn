@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://crcjbqj80yk34"]
+
+[ext_resource type="Script" uid="uid://ck0ot8qxyky4r" path="res://convo_combo.gd" id="1_ywjat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdduv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ConvoCombo" type="Node" unique_id=1895003389]
+script = ExtResource("1_ywjat")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=541694972]
+offset_right = 89.0
+offset_bottom = 93.0
+
+[node name="ResponseLabel" type="Label" parent="VBoxContainer" unique_id=1005634888]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wdduv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=283167598]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1790902230]
+layout_mode = 2
+
+[node name="Option2" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1145939770]
+layout_mode = 2
+
+[node name="Option3" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=819626219]
+layout_mode = 2
+
+[node name="Option4" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1668899083]
+layout_mode = 2
+
+[node name="Option5" type="Button" parent="VBoxContainer/VBoxContainer" unique_id=1797315010]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=999156630]
+position = Vector2(283, 46)
+zoom = Vector2(1.36, 1.36)
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Option3" to="." method="_on_option_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Option4" to="." method="_on_option_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/Option5" to="." method="_on_option_5_pressed"]

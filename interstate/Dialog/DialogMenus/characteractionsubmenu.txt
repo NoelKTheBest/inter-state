@@ -1,4 +1,0 @@
-Drive%c		Sleep%c		Explore%c
-Drive<		Sleep 		Explore 
-Drive 		Sleep<		Explore 
-Drive 		Sleep 		Explore<
